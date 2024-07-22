@@ -12,6 +12,7 @@ from sqlalchemy.orm import joinedload
 app = flask.Flask(__name__)
 app.secret_key = 'qwerty'
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:postgres@localhost:5432/hrms"
+# app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:postgres@localhost:5432/hrms_sample"
 
 
 CORS(app)
@@ -135,7 +136,7 @@ def delete_designation(id):
     db.session.delete(designation)
     db.session.commit()
 
-    return jsonify({'message': 'Designation  deleted successfully'}), 200
+    return jsonify({'message': 'Designation deleted successfully'}), 200
     
 
 
@@ -253,8 +254,8 @@ def delete_employee(id):
         now = dt.datetime.now(dt.timezone.utc).isoformat()
         employee = db.session.query(Employee).get(id)
         employee.deleted_at = now
-        if not employee:
-            return jsonify({'error': 'Employee not found'}), 404
+        # if not employee:
+        #     return jsonify({'error': 'Employee not found'}), 404
 
         db.session.commit()
         return jsonify({'message': 'Employee deleted successfully'}), 200
@@ -285,7 +286,7 @@ def leave_records():
             'id': leave.id,
             'leave_taken': leave.leave_taken,
             'employee_id': leave.employee_id,
-            'employee_name': leave.employees.employee_name 
+            'employee_name': employee_name 
         })
 
     return jsonify(leave_list)

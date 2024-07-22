@@ -68,6 +68,12 @@ def init_db(db_uri='postgresql://postgres:postgres@localhost:5432/hrms'):
     Base.metadata.create_all(engine)
     logger.info("Created database")
 
+# def init_db(db_uri='postgresql://postgres:postgres@localhost:5432/hrms_sample'):
+#     logger = logging.getLogger("FlaskApp")
+#     engine = create_engine(db_uri)
+#     Base.metadata.create_all(engine)
+#     logger.info("Created database")
+
 def get_session(db_uri):
     engine = create_engine(db_uri)
     Session = sessionmaker(bind = engine)
