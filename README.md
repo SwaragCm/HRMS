@@ -12,6 +12,12 @@
 - flask running port -http://127.0.0.1:5000/
 - Install all packages in requirement.txt
       `pip install -requirement.txt`
+  
+- React runnning port -http://localhost:5173
+- To run react
+  
+       npm istall
+       npm run dev
   ### *unittest*
 - Create new database for testing purpose and change the database in flask before running the test to avoid accidental of data lose.
 - To run test file :
