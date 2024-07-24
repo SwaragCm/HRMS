@@ -69,7 +69,7 @@ const SuccessMessage = styled('p')({
   marginTop: '10px',
 });
 
-const MessageDisplayTime = 1000; // Time in milliseconds (1 second)
+const MessageDisplayTime = 1000; 
 
 const Authenticate = () => {
   const dispatch = useDispatch();
@@ -91,7 +91,7 @@ const Authenticate = () => {
   }, [error, loggedIn]);
 
   useEffect(() => {
-    // Check if username exists in localStorage and set it to state
+   
     const storedUsername = localStorage.getItem('username');
     if (storedUsername) {
       setUsername(storedUsername);

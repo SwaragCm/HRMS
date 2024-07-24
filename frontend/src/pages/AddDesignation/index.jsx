@@ -21,11 +21,11 @@ const AddDesignation = () => {
     total_leave: '',
   });
 
-  // Check if username exists in localStorage
+ 
   useEffect(() => {
     const username = localStorage.getItem('username');
     if (!username) {       
-        navigate('/login'); // Redirect to login page
+        navigate('/login');
     } else {
         dispatch(fetchEmployees());
     }
@@ -34,7 +34,7 @@ const AddDesignation = () => {
   const success = () => {
     setErrorMsg(null);
     dispatch(fetchDesignations());
-    navigate('/list/role'); // Navigate to designations list page
+    navigate('/list/role'); 
   };
 
   const errorHandle = (error) => {

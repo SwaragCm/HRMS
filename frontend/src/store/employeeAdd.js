@@ -10,7 +10,7 @@ export const createEmployee = createAsyncThunk(
   "employee/create",
   async ({ employeeData, successCB, errorCB }) => {
     const response = await addEmployee(employeeData, successCB, errorCB);
-    return response;  // Assuming backend returns relevant data
+    return response;  
   }
 );
 

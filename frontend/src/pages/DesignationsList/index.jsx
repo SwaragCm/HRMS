@@ -43,7 +43,7 @@ const DesignationsList = () => {
   const handleUpdateDesignation = (designation) => {
     setSelectedDesignation(designation);
     setUpdatedRole(designation.role);
-    setUpdatedTotalLeave(designation.total_leave.toString()); // Convert total_leave to string for TextField
+    setUpdatedTotalLeave(designation.total_leave.toString()); 
     setIsModalOpen(true);
   };
 
@@ -54,7 +54,7 @@ const DesignationsList = () => {
           designationId: selectedDesignation.id,
           data: {
             role: updatedRole,
-            total_leave: parseInt(updatedTotalLeave), // Convert updatedTotalLeave back to integer
+            total_leave: parseInt(updatedTotalLeave), 
           },
         })
       )
@@ -79,7 +79,7 @@ const DesignationsList = () => {
     dispatch(deleteDesignationData(designationId))
       .then(() => {
         dispatch(fetchDesignations());
-        setDeleteConfirmationOpen(false); // Close the confirmation dialog after successful delete
+        setDeleteConfirmationOpen(false); 
       })
       .catch((err) => {
         console.error('Failed to delete designation:', err);

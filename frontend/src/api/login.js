@@ -5,10 +5,10 @@ const login = (username, password) => {
 
   return axios.post(url, { username, password })
     .then(response => {
-      return response.data; // Return the response data
+      return response.data; 
     })
     .catch(error => {
-      throw error.response.data; // Throw the error response data
+      throw error.response.data; 
     });
 };
 

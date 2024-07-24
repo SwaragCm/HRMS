@@ -9,6 +9,6 @@ export const deleteDesignation = (designationId) => {
       return response.data;
     })
     .catch(error => {
-      throw error.response.data.error; // Adjust error handling as per your API response
+      throw error.response.data.error; 
     });
 };

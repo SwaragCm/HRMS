@@ -1,4 +1,4 @@
-import authReducer from './hrLogin'; // Import your reducer slice
+import authReducer from './hrLogin'; 
 import { configureStore } from '@reduxjs/toolkit';
 import employeeAddReducer from './employeeAdd';
 import employeeListReducer from './employeesList';

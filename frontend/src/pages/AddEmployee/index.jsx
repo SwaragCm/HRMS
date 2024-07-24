@@ -24,17 +24,17 @@ const AddEmployee = () => {
         email: '',
         phone_number: '',
         address: '',
-        designation_id: '', // This will store the selected designation ID
+        designation_id: '', 
     });
 
     const designations = useSelector(state => state.designationList.designations);
     
 
-    // Check if username exists in localStorage
+   
     useEffect(() => {
         const username = localStorage.getItem('username');
         if (!username) {            
-            navigate('/login'); // Redirect to login page
+            navigate('/login');
         } else {
             dispatch(fetchDesignations());
         }

@@ -48,7 +48,7 @@ const EditEmployee = ({ isOpen, onClose, employee, designations }) => {
       [name]: value,
     }));
 
-    // Validate leave_taken against total_leave
+    
     if (name === 'leave_taken') {
       const totalLeave = employee.total_leave;
       if (parseInt(value) > parseInt(totalLeave)) {
@@ -73,7 +73,7 @@ const EditEmployee = ({ isOpen, onClose, employee, designations }) => {
   };
 
   if (!isOpen) {
-    return null; // Render nothing if isOpen is false
+    return null; 
   }
 
   return (

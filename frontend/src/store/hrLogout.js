@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import logoutAPI from '../api/logout'; // Adjust path as per your folder structure
+import logoutAPI from '../api/logout'; 
 
 const initialState = {
   loggingOut: false,
@@ -30,7 +30,7 @@ export const { logoutStart, logoutSuccess, logoutFailure } = logoutSlice.actions
 export const logoutUser = () => async (dispatch) => {
   dispatch(logoutStart());
   try {
-    await logoutAPI(); // Call the logout API function
+    await logoutAPI(); 
     dispatch(logoutSuccess());
   } catch (error) {
     dispatch(logoutFailure({ error: error.message || 'Logout failed.' }));
