@@ -11,7 +11,6 @@ export const fetchEmployees = createAsyncThunk(
   "employees/fetchAll",
   async () => {
     const response = await getEmployees();
-    console.log(response,"response from store");
     return response;
   }
 );

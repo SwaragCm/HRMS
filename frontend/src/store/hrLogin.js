@@ -33,10 +33,10 @@ export const loginUser = (username, password) => async (dispatch) => {
   try {
     const response = await loginAPI(username, password);
     dispatch(loginSuccess({ username: username }));
-    return response; // Return the response from the API
+    return response; 
   } catch (error) {
     dispatch(loginFailure({ error: error.message || 'Login failed.' }));
-    throw error; // Throw error for further handling if needed
+    throw error; 
   }
 };
 

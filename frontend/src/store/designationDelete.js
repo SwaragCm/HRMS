@@ -5,7 +5,6 @@ export const deleteDesignationData = createAsyncThunk(
   'designationDelete/deleteDesignation',
   async (designationId) => {
     const response = await deleteDesignation(designationId);
-    console.log("store response designation delete",response);
     return response;
   }
 );

@@ -4,9 +4,7 @@ import { updateEmployee } from '../api/editEmployee';
 export const updateEmployeeData = createAsyncThunk(
   'employeeUpdate/updateEmployee',
   async ({ employeeId, data }) => {
-    console.log(employeeId,data,"store employee update");
     const response = await updateEmployee(employeeId, data);
-    console.log(employeeId,data,"store employee update");
     return response;
   }
 );
