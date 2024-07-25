@@ -8,11 +8,14 @@ from sqlalchemy import  create_engine, UniqueConstraint, Integer, String, Foreig
 from sqlalchemy.orm import DeclarativeBase,Mapped, mapped_column, sessionmaker, relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 
+
+dburl = "postgresql://postgres:postgres@localhost:5432/hrms"
 class Base(DeclarativeBase):
   def __repr__(self):
     return f"{self.__class__.__name__}(id={self.id})"
   
 db = SQLAlchemy(model_class=Base)
+
 
 
 class Designation(Base):
@@ -62,20 +65,24 @@ class Authentication(db.Model):
 
 
 
-def init_db(db_uri='postgresql://postgres:postgres@localhost:5432/hrms'):
+def init_db(db_uri= dburl):
     logger = logging.getLogger("FlaskApp")
     engine = create_engine(db_uri)
     Base.metadata.create_all(engine)
     logger.info("Created database")
 
-# def init_db(db_uri='postgresql://postgres:postgres@localhost:5432/hrms_sample'):
-#     logger = logging.getLogger("FlaskApp")
-#     engine = create_engine(db_uri)
-#     Base.metadata.create_all(engine)
-#     logger.info("Created database")
+
 
 def get_session(db_uri):
     engine = create_engine(db_uri)
     Session = sessionmaker(bind = engine)
     session = Session()
     return session
+
+
+# for testing
+# def init_db(db_uri='postgresql://postgres:postgres@localhost:5432/hrms_sample'):
+#     logger = logging.getLogger("FlaskApp")
+#     engine = create_engine(db_uri)
+#     Base.metadata.create_all(engine)
+#     logger.info("Created database")

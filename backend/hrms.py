@@ -11,7 +11,9 @@ from sqlalchemy.orm import joinedload
 
 app = flask.Flask(__name__)
 app.secret_key = 'qwerty'
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:postgres@localhost:5432/hrms"
+app.config["SQLALCHEMY_DATABASE_URI"] = dburl
+
+# for testing
 # app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:postgres@localhost:5432/hrms_sample"
 
 
@@ -53,7 +55,7 @@ def login():
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
-
+    print(username, password,"password and username")
     if not username or not password:
         return jsonify({'message': 'Username and password are required.'}), 400
 
